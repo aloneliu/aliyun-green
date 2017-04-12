@@ -1,5 +1,5 @@
 {
-  "name": "liujin/aliyun_green",
+  "name": "liujin/aliyun-green",
   "type": "library",
   "description": "PHP  集成aliyun非法文字过滤",
   "keywords": [
