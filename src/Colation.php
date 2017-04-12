@@ -27,6 +27,8 @@ class Colation
      * @param $content  #发帖内容, 必填
      * @param $postId   #发帖用户id 可选
      * @param int $postTime #发帖时间, 可选
+     *
+     * return bool(true/false) (是垃圾内容返回true)
      */
     public function text($content, $postId = null)
     {
@@ -40,14 +42,26 @@ class Colation
             'postTime' => $postTime # 发帖时间, 可选
         ];
 
-        //  设置要检测的文本, 可以同时检测最多50个文本
+        // 设置要检测的文本, 可以同时检测最多50个文本
         $request->setDataItems(json_encode([$dataItem1]));
 
         try {
             $response = $this->client->getAcsResponse($request);
-            print_r( $response );
+            // 如果成功且命中
+            if ("Success" == $response->Code) {
+                $textAntispamResults = $response->TextAntispamResults->TextAntispamResult;
+                foreach ($textAntispamResults as $textAntispamResult) {
+                    // 原文本
+                    // print_r($textAntispamResult->Text);
+                    // 是否是垃圾
+                    // dump($textAntispamResult->IsSpam);
+                    if ($textAntispamResult->IsSpam) {
+                        return $IsSpam = true;
+                    }
+                }
+            }
         } catch (Exception $e) {
-            print_r($e);
+            dump($e);
         }
     }
 
@@ -57,8 +71,7 @@ class Colation
      */
     public function img()
     {
-        echo 'Colation-Colation';
+        echo 'Colation-img';
     }
-
 
 }
