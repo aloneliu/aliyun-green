@@ -1,13 +1,26 @@
 {
-    "name": "liujin/aliyun_green",
-    "authors": [
-        {
-            "name": "aloneliu",
-            "email": "745302601@qq.com"
-        }
-    ],
-    "minimum-stability": "dev",
-    "require": {
-        "php": ">=5.3.0"
+  "name": "liujin/aliyun_green",
+  "type": "library",
+  "description": "PHP  集成aliyun非法文字过滤",
+  "keywords": [
+    "文字过滤",
+    "aliyun",
+    "sdk",
+    "green"
+  ],
+  "authors": [
+    {
+      "name": "aloneliu",
+      "email": "745302601@qq.com"
     }
+  ],
+  "require": {
+    "php": ">=5.5.0"
+  },
+  "minimum-stability": "dev",
+  "autoload": {
+    "psr-4": {
+      "aliyun\\": "src/"
+    }
+  }
 }
