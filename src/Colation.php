@@ -16,7 +16,7 @@ class Colation
      */
     public function text()
     {
-        echo 'Colation-text';
+        echo 'Colation-text---';
     }
 
     /**
