@@ -2,6 +2,8 @@
 
 namespace Liu\AliyunGreen;
 
+require_once __DIR__ . '/../aliyuncs/aliyun-php-sdk-core/Config.php';
+
 use Green\Request\V20161216 as Green;
 
 class Colation
@@ -15,7 +17,8 @@ class Colation
     {
         // accessKeyId、accessKeySecret
         $this->iClientProfile = \DefaultProfile::getProfile("cn-hangzhou", $accessKeyId, $accessKeySecret);
-        \DefaultProfile::addEndpoint("cn-hangzhou", "cn-hangzhou", "Green", "green.cn-hangzhou.aliyuncs.com");
+
+        // \DefaultProfile::addEndpoint("cn-hangzhou", "cn-hangzhou", "Green", "green.cn-hangzhou.aliyuncs.com");
 
         $this->client = new \DefaultAcsClient($this->iClientProfile);
     }
