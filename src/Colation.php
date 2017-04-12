@@ -28,10 +28,11 @@ class Colation
      * @param $postId   #发帖用户id 可选
      * @param int $postTime #发帖时间, 可选
      */
-    public function text($content, $postId = null, $postTime = round(microtime(true) * 1000))
+    public function text($content, $postId = null)
     {
         $request = new Green\TextAntispamDetectionRequest();
 
+        $postTime  = round(microtime(true) * 1000);
         $dataItem1 = [
             'dataId'   => uniqid(), # 可填,如果未填,系统自动生成一个
             'content'  => $content, # 发帖内容, 必填
@@ -40,11 +41,11 @@ class Colation
         ];
 
         //  设置要检测的文本, 可以同时检测最多50个文本
-        $request->setDataItems(json_encode([$dataItem1], true));
+        $request->setDataItems(json_encode([$dataItem1]));
 
         try {
             $response = $this->client->getAcsResponse($request);
-            return $response;
+            print_r( $response );
         } catch (Exception $e) {
             print_r($e);
         }
