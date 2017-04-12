@@ -6,5 +6,8 @@
             "email": "745302601@qq.com"
         }
     ],
-    "require": {}
+    "minimum-stability": "dev",
+    "require": {
+        "php": ">=5.3.0"
+    }
 }
