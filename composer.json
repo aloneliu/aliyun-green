@@ -1,8 +1,8 @@
 {
-    "name": "aloneliu/aliyun-green",
+    "name": "aloneliu/aliyun-acs-client",
     "type": "library",
-    "description": "PHP  集成aliyun非法文字过滤",
-    "keywords": ["文字过滤", "aliyun", "sdk", "green"],
+    "description": "PHP  集成aliyun验证码",
+    "keywords": ["验证码", "aliyun", "sdk", "green"],
     "authors": [
         {
             "name": "aloneliu",
@@ -15,7 +15,7 @@
     "minimum-stability": "dev",
     "autoload": {
     "psr-4": {
-        "Liu\\AliyunGreen\\": "src/"
+        "Liu\\AliyunAscClient\\": "src/"
       }
     }
 }

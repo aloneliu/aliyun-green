@@ -17,47 +17,35 @@
  * specific language governing permissions and limitations
  * under the License.
  */
-namespace Green\Request\V20161216;
+namespace jaq\Request\V20161123;
 
-class TextKeywordFilterRequest extends \RpcAcsRequest
+class AfsAppCheckRequest extends \RpcAcsRequest
 {
 	function  __construct()
 	{
-		parent::__construct("Green", "2016-12-16", "TextKeywordFilter");
-		$this->setMethod("POST");
+		parent::__construct("jaq", "2016-11-23", "AfsAppCheck");
 	}
 
-	private  $customDict;
+	private  $callerName;
 
-	private  $text;
+	private  $session;
 
-	private  $useSysDic;
-
-	public function getCustomDict() {
-		return $this->customDict;
+	public function getCallerName() {
+		return $this->callerName;
 	}
 
-	public function setCustomDict($customDict) {
-		$this->customDict = $customDict;
-		$this->queryParameters["CustomDict"]=$customDict;
+	public function setCallerName($callerName) {
+		$this->callerName = $callerName;
+		$this->queryParameters["CallerName"]=$callerName;
 	}
 
-	public function getText() {
-		return $this->text;
+	public function getSession() {
+		return $this->session;
 	}
 
-	public function setText($text) {
-		$this->text = $text;
-		$this->queryParameters["Text"]=$text;
-	}
-
-	public function getUseSysDic() {
-		return $this->useSysDic;
-	}
-
-	public function setUseSysDic($useSysDic) {
-		$this->useSysDic = $useSysDic;
-		$this->queryParameters["UseSysDic"]=$useSysDic;
+	public function setSession($session) {
+		$this->session = $session;
+		$this->queryParameters["Session"]=$session;
 	}
 	
 }

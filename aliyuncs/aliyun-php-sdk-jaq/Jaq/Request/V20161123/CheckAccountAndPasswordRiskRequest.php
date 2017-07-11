@@ -17,36 +17,46 @@
  * specific language governing permissions and limitations
  * under the License.
  */
-namespace Green\Request\V20161216;
+namespace jaq\Request\V20161123;
 
-class TextAntispamDetectionRequest extends \RpcAcsRequest
+class CheckAccountAndPasswordRiskRequest extends \RpcAcsRequest
 {
 	function  __construct()
 	{
-		parent::__construct("Green", "2016-12-16", "TextAntispamDetection");
-		$this->setMethod("POST");
+		parent::__construct("jaq", "2016-11-23", "CheckAccountAndPasswordRisk");
 	}
 
-	private  $customDict;
+	private  $callerName;
 
-	private  $dataItems;
+	private  $accountName;
 
-	public function getCustomDict() {
-		return $this->customDict;
+	private  $passwordHash;
+
+	public function getCallerName() {
+		return $this->callerName;
 	}
 
-	public function setCustomDict($customDict) {
-		$this->customDict = $customDict;
-		$this->queryParameters["CustomDict"]=$customDict;
+	public function setCallerName($callerName) {
+		$this->callerName = $callerName;
+		$this->queryParameters["CallerName"]=$callerName;
 	}
 
-	public function getDataItems() {
-		return $this->dataItems;
+	public function getAccountName() {
+		return $this->accountName;
 	}
 
-	public function setDataItems($dataItems) {
-		$this->dataItems = $dataItems;
-		$this->queryParameters["DataItems"]=$dataItems;
+	public function setAccountName($accountName) {
+		$this->accountName = $accountName;
+		$this->queryParameters["AccountName"]=$accountName;
+	}
+
+	public function getPasswordHash() {
+		return $this->passwordHash;
+	}
+
+	public function setPasswordHash($passwordHash) {
+		$this->passwordHash = $passwordHash;
+		$this->queryParameters["PasswordHash"]=$passwordHash;
 	}
 	
 }
