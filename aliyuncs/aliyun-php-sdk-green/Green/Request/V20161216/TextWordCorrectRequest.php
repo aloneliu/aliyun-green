@@ -17,21 +17,25 @@
  * specific language governing permissions and limitations
  * under the License.
  */
-include_once '../../Config.php';
-class CredentialTest extends PHPUnit_Framework_TestCase
+namespace Green\Request\V20161216;
+
+class TextWordCorrectRequest extends \RpcAcsRequest
 {
-	public function testCredential()
+	function  __construct()
 	{
-		$credential = new Credential("accessKeyId", "accessSecret");
-		$this->assertEquals("accessKeyId",$credential->getAccessKeyId());
-		$this->assertEquals("accessSecret",$credential->getAccessSecret());
-		$this->assertNotNull($credential->getRefreshDate());
-		
-		$dateNow = date("Y-m-d\TH:i:s\Z");
-		$credential->setExpiredDate(1);
-		$this->assertNotNull($credential->getExpiredDate());
-		$this->assertTrue($credential->getExpiredDate() > $dateNow);	
+		parent::__construct("Green", "2016-12-16", "TextWordCorrect");
+		$this->setMethod("POST");
 	}
-	
+
+	private  $text;
+
+	public function getText() {
+		return $this->text;
+	}
+
+	public function setText($text) {
+		$this->text = $text;
+		$this->queryParameters["Text"]=$text;
+	}
 	
 }

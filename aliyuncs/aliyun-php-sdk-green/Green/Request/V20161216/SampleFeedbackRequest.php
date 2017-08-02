@@ -17,21 +17,47 @@
  * specific language governing permissions and limitations
  * under the License.
  */
-include_once '../../Config.php';
-class CredentialTest extends PHPUnit_Framework_TestCase
+namespace Green\Request\V20161216;
+
+class SampleFeedbackRequest extends \RpcAcsRequest
 {
-	public function testCredential()
+	function  __construct()
 	{
-		$credential = new Credential("accessKeyId", "accessSecret");
-		$this->assertEquals("accessKeyId",$credential->getAccessKeyId());
-		$this->assertEquals("accessSecret",$credential->getAccessSecret());
-		$this->assertNotNull($credential->getRefreshDate());
-		
-		$dateNow = date("Y-m-d\TH:i:s\Z");
-		$credential->setExpiredDate(1);
-		$this->assertNotNull($credential->getExpiredDate());
-		$this->assertTrue($credential->getExpiredDate() > $dateNow);	
+		parent::__construct("Green", "2016-12-16", "SampleFeedback");
+		$this->setMethod("POST");
 	}
-	
+
+	private  $taskId;
+
+	private  $marking;
+
+	private  $category;
+
+	public function getTaskId() {
+		return $this->taskId;
+	}
+
+	public function setTaskId($taskId) {
+		$this->taskId = $taskId;
+		$this->queryParameters["TaskId"]=$taskId;
+	}
+
+	public function getMarking() {
+		return $this->marking;
+	}
+
+	public function setMarking($marking) {
+		$this->marking = $marking;
+		$this->queryParameters["Marking"]=$marking;
+	}
+
+	public function getCategory() {
+		return $this->category;
+	}
+
+	public function setCategory($category) {
+		$this->category = $category;
+		$this->queryParameters["Category"]=$category;
+	}
 	
 }
